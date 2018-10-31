@@ -17,16 +17,21 @@ void loadZ3(const char *path) {
 }
 
 int main(int argc, const char * argv[]) {
-    if (argc < 3) {
-        fprintf(stderr, "usage: z3harness libz3.dylib file.smt2\n");
-        return 1;
+    char* dylib = "libz3.so";
+    char* smtFile = "sat.smt2";
+    
+    if (argc > 1) {
+        dylib = argv[1];
+    }
+    if (argc > 2) {
+        smtFile = argv[2];
     }
     
-    loadZ3Dylib(argv[1]);
+    loadZ3Dylib(dylib);
     
     char *smt = NULL;
     size_t fsize, r;
-    FILE *fd = fopen(argv[2], "r");
+    FILE *fd = fopen(smtFile, "r");
     
     if (!fd) {
         fprintf(stderr, "error opening smt file\n");
