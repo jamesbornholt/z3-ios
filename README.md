@@ -1,5 +1,6 @@
 Here's a stupid app that runs Z3 on an iOS device.
-It won't work in the simulator.
+It's incredibly buggy and untested.
+It definitely won't work in the Xcode simulator.
 You'll need Xcode and an Apple developer account.
 
 ## Preparing Z3 for iOS
