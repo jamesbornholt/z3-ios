@@ -1,0 +1,3 @@
+[submodule "z3"]
+	path = z3
+	url = https://github.com/z3prover/z3.git

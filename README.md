@@ -1,4 +1,12 @@
-Patch:
+## Compiling Z3 for iOS
+
+Clone the Z3 repo and check out the latest release:
+
+    git clone https://github.com/z3prover/z3.git
+    cd z3
+    git checkout z3-4.8.1
+
+Patch some files to make cross-compilation work:
 
 ```
 diff --git a/scripts/mk_util.py b/scripts/mk_util.py
@@ -42,8 +50,16 @@ index 32a074eb3..bfc65f8dd 100644
 // #define EUCLID_GCD
 ```
 
-Compiling Z3 for iOS:
+Compile with the right flags:
 
     env CPPFLAGS="-arch arm64 -mios-version-min=12.0 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk" python scripts/mk_make.py
+    cd build
+    make -j8
 
+The result is a `libz3.dylib` shared library.
+You'll need to codesign that library for it to work on a real device:
+
+    codesign -s "<your certificate name>" libz3.dylib
+    
+Now you can copy that 
 

@@ -134,10 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				1A15D3BC21897EC500927834 /* README.md */,
-				1A15D3A12189666700927834 /* harness */,
-				1AEA29BF218955E600974065 /* z3 */,
-				1A15D39B2189664A00927834 /* z3mac */,
-				1A15D3B321897B4600927834 /* z3linux */,
+				1AEA29BF218955E600974065 /* src */,
 				1AEA29BE218955E600974065 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -152,7 +149,18 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1AEA29BF218955E600974065 /* z3 */ = {
+		1AEA29BF218955E600974065 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				1A15D3A12189666700927834 /* harness */,
+				1A15D3B321897B4600927834 /* z3linux */,
+				1A15D39B2189664A00927834 /* z3mac */,
+				34F604CE218A1E730061BC5A /* app */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		34F604CE218A1E730061BC5A /* app */ = {
 			isa = PBXGroup;
 			children = (
 				1A15D38F2189621200927834 /* libz3.dylib */,
@@ -166,7 +174,7 @@
 				1AEA29CE218955E600974065 /* Info.plist */,
 				1AEA29CF218955E600974065 /* main.m */,
 			);
-			path = z3;
+			path = app;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -506,8 +514,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DY7L2C256S;
-				HEADER_SEARCH_PATHS = /Users/james/code/z3/src/api;
-				INFOPLIST_FILE = z3/Info.plist;
+				HEADER_SEARCH_PATHS = (
+					/Users/james/code/z3/src/api,
+					/Users/bornholt/code/z3/src/api,
+				);
+				INFOPLIST_FILE = "$(PROJECT_DIR)/src/app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -515,7 +526,7 @@
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/z3",
+					"$(PROJECT_DIR)/src/app",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = edu.uw.cs.z3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -529,8 +540,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DY7L2C256S;
-				HEADER_SEARCH_PATHS = /Users/james/code/z3/src/api;
-				INFOPLIST_FILE = z3/Info.plist;
+				HEADER_SEARCH_PATHS = (
+					/Users/james/code/z3/src/api,
+					/Users/bornholt/code/z3/src/api,
+				);
+				INFOPLIST_FILE = "$(PROJECT_DIR)/src/app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -538,7 +552,7 @@
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/z3",
+					"$(PROJECT_DIR)/src/app",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = edu.uw.cs.z3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
