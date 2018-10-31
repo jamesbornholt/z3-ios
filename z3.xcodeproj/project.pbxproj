@@ -25,7 +25,6 @@
 		1AEA29CA218955E600974065 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AEA29C9218955E600974065 /* Assets.xcassets */; };
 		1AEA29CD218955E600974065 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AEA29CB218955E600974065 /* LaunchScreen.storyboard */; };
 		1AEA29D0218955E600974065 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AEA29CF218955E600974065 /* main.m */; };
-		1AEA29DA21895E3F00974065 /* foo.smt2 in Resources */ = {isa = PBXBuildFile; fileRef = 1AEA29D921895E3F00974065 /* foo.smt2 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -74,7 +73,6 @@
 		1AEA29CC218955E600974065 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1AEA29CE218955E600974065 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1AEA29CF218955E600974065 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		1AEA29D921895E3F00974065 /* foo.smt2 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = foo.smt2; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,7 +115,6 @@
 				1A15D3A82189698A00927834 /* sat.smt2 */,
 				1A15D393218962E800927834 /* Z3Harness.h */,
 				1A15D394218962E800927834 /* Z3Harness.c */,
-				1AEA29D921895E3F00974065 /* foo.smt2 */,
 			);
 			path = harness;
 			sourceTree = "<group>";
@@ -282,7 +279,6 @@
 				1A15D3BD21897EC500927834 /* README.md in Resources */,
 				1AEA29C8218955E600974065 /* Main.storyboard in Resources */,
 				1A15D3A92189698A00927834 /* sat.smt2 in Resources */,
-				1AEA29DA21895E3F00974065 /* foo.smt2 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,10 +341,10 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
-				HEADER_SEARCH_PATHS = /Users/james/code/z3/src/api;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/z3/src/api";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/z3mac",
+					"$(PROJECT_DIR)/src/z3mac",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -361,10 +357,10 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
-				HEADER_SEARCH_PATHS = /Users/james/code/z3/src/api;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/z3/src/api";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/z3mac",
+					"$(PROJECT_DIR)/src/z3mac",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -514,10 +510,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DY7L2C256S;
-				HEADER_SEARCH_PATHS = (
-					/Users/james/code/z3/src/api,
-					/Users/bornholt/code/z3/src/api,
-				);
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/z3/src/api";
 				INFOPLIST_FILE = "$(PROJECT_DIR)/src/app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -540,10 +533,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DY7L2C256S;
-				HEADER_SEARCH_PATHS = (
-					/Users/james/code/z3/src/api,
-					/Users/bornholt/code/z3/src/api,
-				);
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/z3/src/api";
 				INFOPLIST_FILE = "$(PROJECT_DIR)/src/app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (

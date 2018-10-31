@@ -1,12 +1,37 @@
-## Compiling Z3 for iOS
+Here's a stupid app that runs Z3 on an iOS device.
+It won't work in the simulator.
 
-Clone the Z3 repo and check out the latest release:
+## Preparing Z3 for iOS
 
-    git clone https://github.com/z3prover/z3.git
+Clone the Z3 repo, which is a submodule here:
+
+    git submodule update --init
     cd z3
-    git checkout z3-4.8.1
 
-Patch some files to make cross-compilation work:
+The repo includes a Z3 shared library
+already compiled for ARM (`src/app/libz3.dylib`).
+But you'll need to sign it with your own developer certificate
+for iOS devices to be able to load it:
+
+    codesign -fs "<your certificate name>" src/app/libz3.dylib
+
+## Compiling the app
+
+You probably(?) need to change the signing settings
+in the project inspector in Xcode to use your certificate.
+Then you should just be able to compile the Z3 target
+against a real device scheme (not one of the simulator options).
+
+## Changing the SMT file
+
+The app loads an SMT file from `src/harness/sat.smt2` into the editor initially.
+Malformed SMT crashes the app right now.
+
+## Recompiling the Z3 library
+
+If you need to recompile `libz3.dylib`...
+
+First, patch some files in Z3 to make cross-compilation work:
 
 ```
 diff --git a/scripts/mk_util.py b/scripts/mk_util.py
@@ -50,16 +75,8 @@ index 32a074eb3..bfc65f8dd 100644
 // #define EUCLID_GCD
 ```
 
-Compile with the right flags:
+Cross-compile Z3 with the right flags:
 
     env CPPFLAGS="-arch arm64 -mios-version-min=12.0 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk" python scripts/mk_make.py
     cd build
     make -j8
-
-The result is a `libz3.dylib` shared library.
-You'll need to codesign that library for it to work on a real device:
-
-    codesign -s "<your certificate name>" libz3.dylib
-    
-Now you can copy that 
-
