@@ -22,8 +22,8 @@ against a real device scheme (not one of the simulator options).
 
 ## Changing the SMT file
 
-The app loads an SMT file from `src/harness/sat.smt2` into the editor initially.
-Malformed SMT crashes the app right now.
+The app loads an SMT file from `src/sat.smt2` into the editor initially.
+You can load a new SMT file from the iOS file picker using the "Load SMT" button.
 
 ## Recompiling the Z3 library
 
