@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController<UIDocumentPickerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *runButton;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
-@property (weak, nonatomic) IBOutlet UITextView *inputView;
+@property (weak, nonatomic) IBOutlet UITextView *smtInputView;
 @property (weak, nonatomic) IBOutlet UITextView *outputView;
 
 

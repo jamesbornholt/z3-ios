@@ -30,10 +30,16 @@ void *loadZ3Dylib(const char *path) {
 //        fprintf(stderr, "loaded z3 dylib to %p\n", z3Lib);
         loadSymbol("Z3_mk_context", z3Lib, (void**) &z3MkContext);
         loadSymbol("Z3_del_context", z3Lib, (void**) &z3DelContext);
+        loadSymbol("Z3_set_error_handler", z3Lib, (void**) &z3SetErrorHandler);
         loadSymbol("Z3_parse_smtlib2_file", z3Lib, (void**) &z3ParseSMT2File);
         loadSymbol("Z3_eval_smtlib2_string", z3Lib, (void**) &z3EvalSMT2String);
+        loadSymbol("Z3_get_error_msg", z3Lib, (void**) &z3GetErrorMsg);
     }
     return z3Lib;
+}
+
+static void z3_noexit_error_handler(Z3_context ctx, Z3_error_code c) {
+    fprintf(stderr, "Z3 Error: %s\n", z3GetErrorMsg(ctx, c));
 }
 
 const char *runZ3String(const char *str) {
@@ -42,6 +48,7 @@ const char *runZ3String(const char *str) {
         return "";
     }
     Z3_context ctx = z3MkContext(NULL);
+    z3SetErrorHandler(ctx, &z3_noexit_error_handler);
     Z3_string z3ret = z3EvalSMT2String(ctx, str);
     
     // copy output string to buffer before we free the context

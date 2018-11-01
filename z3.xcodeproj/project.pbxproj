@@ -19,9 +19,9 @@
 		1A15D3BA21897D9000927834 /* Z3Harness.c in Sources */ = {isa = PBXBuildFile; fileRef = 1A15D394218962E800927834 /* Z3Harness.c */; };
 		1A15D3BB21897DB700927834 /* sat.smt2 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1A15D3A82189698A00927834 /* sat.smt2 */; };
 		1A15D3BD21897EC500927834 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1A15D3BC21897EC500927834 /* README.md */; };
+		1A5D8B8D218A9A5C00354BF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A5D8B8C218A9A5C00354BF6 /* Main.storyboard */; };
 		1AEA29C2218955E600974065 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AEA29C1218955E600974065 /* AppDelegate.m */; };
 		1AEA29C5218955E600974065 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AEA29C4218955E600974065 /* ViewController.m */; };
-		1AEA29C8218955E600974065 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AEA29C6218955E600974065 /* Main.storyboard */; };
 		1AEA29CA218955E600974065 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AEA29C9218955E600974065 /* Assets.xcassets */; };
 		1AEA29CD218955E600974065 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AEA29CB218955E600974065 /* LaunchScreen.storyboard */; };
 		1AEA29D0218955E600974065 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AEA29CF218955E600974065 /* main.m */; };
@@ -63,12 +63,12 @@
 		1A15D3B221897B4600927834 /* z3linux */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = z3linux; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A15D3B421897B4600927834 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		1A15D3BC21897EC500927834 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		1A5D8B8C218A9A5C00354BF6 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		1AEA29BD218955E600974065 /* z3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = z3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AEA29C0218955E600974065 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1AEA29C1218955E600974065 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1AEA29C3218955E600974065 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		1AEA29C4218955E600974065 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		1AEA29C7218955E600974065 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1AEA29C9218955E600974065 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1AEA29CC218955E600974065 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1AEA29CE218955E600974065 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -160,12 +160,12 @@
 		34F604CE218A1E730061BC5A /* app */ = {
 			isa = PBXGroup;
 			children = (
+				1A5D8B8C218A9A5C00354BF6 /* Main.storyboard */,
 				1A15D38F2189621200927834 /* libz3.dylib */,
 				1AEA29C0218955E600974065 /* AppDelegate.h */,
 				1AEA29C1218955E600974065 /* AppDelegate.m */,
 				1AEA29C3218955E600974065 /* ViewController.h */,
 				1AEA29C4218955E600974065 /* ViewController.m */,
-				1AEA29C6218955E600974065 /* Main.storyboard */,
 				1AEA29C9218955E600974065 /* Assets.xcassets */,
 				1AEA29CB218955E600974065 /* LaunchScreen.storyboard */,
 				1AEA29CE218955E600974065 /* Info.plist */,
@@ -276,8 +276,8 @@
 				1A15D392218962AC00927834 /* libz3.dylib in Resources */,
 				1AEA29CD218955E600974065 /* LaunchScreen.storyboard in Resources */,
 				1AEA29CA218955E600974065 /* Assets.xcassets in Resources */,
+				1A5D8B8D218A9A5C00354BF6 /* Main.storyboard in Resources */,
 				1A15D3BD21897EC500927834 /* README.md in Resources */,
-				1AEA29C8218955E600974065 /* Main.storyboard in Resources */,
 				1A15D3A92189698A00927834 /* sat.smt2 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -317,14 +317,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		1AEA29C6218955E600974065 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1AEA29C7218955E600974065 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		1AEA29CB218955E600974065 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

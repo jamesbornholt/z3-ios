@@ -39,11 +39,33 @@
         return;
     }
     
-    [self.inputView setText:smt];
+    [self.smtInputView setText:smt];
+}
+
+- (IBAction)loadSMTPressed:(id)sender {
+    NSArray<NSString*>* utis = @[@"public.item"];
+    UIDocumentPickerViewController* dpvc =
+    [[UIDocumentPickerViewController alloc] initWithDocumentTypes:utis inMode:UIDocumentPickerModeOpen];
+    dpvc.delegate = self;
+//    [self addChildViewController:dpvc];
+    [self presentViewController:dpvc animated:YES completion:nil];
+}
+
+- (void)documentPicker:(UIDocumentPickerViewController *)controller didPickDocumentsAtURLs:(NSArray<NSURL *> *)urls {
+    NSLog(@"urls: %@", urls);
+    if ([urls count] > 0) {
+        NSURL* url = [urls objectAtIndex:0];
+        if ([url startAccessingSecurityScopedResource]) {
+            NSString* smt = [NSString stringWithContentsOfURL:url encoding:NSASCIIStringEncoding error:nil];
+            if (smt != nil) {
+                [self.smtInputView setText:smt];
+            }
+        }
+    }
 }
 
 - (IBAction)runStuff:(id)sender {
-    NSString *smt = [self.inputView text];
+    NSString *smt = [self.smtInputView text];
     dispatch_queue_global_t q = dispatch_get_global_queue(QOS_CLASS_USER_INTERACTIVE, 0);
     dispatch_async(q, ^{
         dispatch_sync(dispatch_get_main_queue(), ^{
@@ -52,7 +74,7 @@
         
         NSDate *start = [NSDate date];
         const char* ret = runZ3String([smt cStringUsingEncoding:NSASCIIStringEncoding]);
-//        const char* ret = runZ3String("(declare-const x Bool)(assert x)(check-sat)");
+
         double time = [start timeIntervalSinceNow] * -1;
         NSLog(@"Z3 returned [%fs] \"%s\"", time, ret);
         dispatch_async(dispatch_get_main_queue(), ^{
