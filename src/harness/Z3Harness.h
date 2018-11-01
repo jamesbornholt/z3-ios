@@ -17,6 +17,7 @@
 static void *z3Lib = NULL;
 
 static Z3_context (*z3MkContext)(Z3_config c) = NULL;
+static void (*z3DelContext)(Z3_context c) = NULL;
 static Z3_ast (*z3ParseSMT2File)(Z3_context ctx, Z3_string file, unsigned num_sorts, Z3_symbol const sort_names[], Z3_sort const sorts[], unsigned num_decls, Z3_symbol const decl_names[], Z3_func_decl decls[]) = NULL;
 static Z3_string (*z3EvalSMT2String)(Z3_context ctx, Z3_string str) = NULL;
 
