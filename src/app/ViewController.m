@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 
-#import "Z3Harness.h"
+#import "z3.h"
 
 @interface ViewController ()
 
@@ -18,17 +18,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self loadZ3];
+
     [self loadSMT];
 }
 
-- (void)loadZ3 {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        NSString* path = [[NSBundle mainBundle] pathForResource:@"libz3" ofType:@"dylib"];
-        loadZ3Dylib([path cStringUsingEncoding:NSASCIIStringEncoding]);
-    });
-}
 
 - (void) loadSMT {
     NSError *err;
@@ -47,12 +40,10 @@
     UIDocumentPickerViewController* dpvc =
     [[UIDocumentPickerViewController alloc] initWithDocumentTypes:utis inMode:UIDocumentPickerModeOpen];
     dpvc.delegate = self;
-//    [self addChildViewController:dpvc];
     [self presentViewController:dpvc animated:YES completion:nil];
 }
 
 - (void)documentPicker:(UIDocumentPickerViewController *)controller didPickDocumentsAtURLs:(NSArray<NSURL *> *)urls {
-    NSLog(@"urls: %@", urls);
     if ([urls count] > 0) {
         NSURL* url = [urls objectAtIndex:0];
         if ([url startAccessingSecurityScopedResource]) {
@@ -64,6 +55,10 @@
     }
 }
 
+static void z3_noexit_error_handler(Z3_context ctx, Z3_error_code c) {
+    fprintf(stderr, "Z3 Error: %s\n", Z3_get_error_msg(ctx, c));
+}
+
 - (IBAction)runStuff:(id)sender {
     NSString *smt = [self.smtInputView text];
     dispatch_queue_global_t q = dispatch_get_global_queue(QOS_CLASS_USER_INTERACTIVE, 0);
@@ -71,11 +66,21 @@
         dispatch_sync(dispatch_get_main_queue(), ^{
             [self.timeLabel setText:@"Running..."];
         });
+
+        Z3_context ctx = Z3_mk_context(NULL);
+        Z3_set_error_handler(ctx, &z3_noexit_error_handler);
         
         NSDate *start = [NSDate date];
-        const char* ret = runZ3String([smt cStringUsingEncoding:NSASCIIStringEncoding]);
-
+        Z3_string z3ret = Z3_eval_smtlib2_string(ctx, [smt cStringUsingEncoding:NSASCIIStringEncoding]);
         double time = [start timeIntervalSinceNow] * -1;
+        
+        // copy output string to buffer before we free the context
+        size_t len = strlen(z3ret);
+        char *ret = calloc(sizeof(char), len + 1);
+        strcpy(ret, z3ret);
+        
+        Z3_del_context(ctx);
+
         NSLog(@"Z3 returned [%fs] \"%s\"", time, ret);
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.timeLabel setText:[NSString stringWithFormat:@"%f s", time]];

@@ -11,11 +11,7 @@ Clone the Z3 repo, which is a submodule here:
     cd z3
 
 The repo includes a Z3 shared library
-already compiled for ARM (`src/app/libz3.dylib`).
-But you'll need to sign it with your own developer certificate
-for iOS devices to be able to load it:
-
-    codesign -fs "<your certificate name>" src/app/libz3.dylib
+that's already compiled for ARM (`src/app/libz3.dylib`).
 
 ## Compiling the app
 
@@ -91,5 +87,9 @@ Then run:
     cd build
     make -j8
 
-Now there's a `libz3.dylib` in the `build` directory
-that you can copy to `src/app`. Be sure to codesign it with the instructions above.
+Now there's a `libz3.dylib` in the `build` directory.
+We need to modify it to cooperate with the linker:
+
+    install_name_tool -id "@executable_path/Frameworks/libz3.dylib" libz3.dylib
+
+Now you can copy `libz3.dylib` to `src/app`.

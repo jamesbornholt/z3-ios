@@ -7,19 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1A15D392218962AC00927834 /* libz3.dylib in Resources */ = {isa = PBXBuildFile; fileRef = 1A15D38F2189621200927834 /* libz3.dylib */; };
-		1A15D395218962E800927834 /* Z3Harness.c in Sources */ = {isa = PBXBuildFile; fileRef = 1A15D394218962E800927834 /* Z3Harness.c */; };
-		1A15D39D2189664A00927834 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A15D39C2189664A00927834 /* main.m */; };
-		1A15D3A62189672300927834 /* Z3Harness.c in Sources */ = {isa = PBXBuildFile; fileRef = 1A15D394218962E800927834 /* Z3Harness.c */; };
-		1A15D3A72189682D00927834 /* libz3.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1A15D3A22189669900927834 /* libz3.dylib */; };
 		1A15D3A92189698A00927834 /* sat.smt2 in Resources */ = {isa = PBXBuildFile; fileRef = 1A15D3A82189698A00927834 /* sat.smt2 */; };
-		1A15D3AA21896A5D00927834 /* sat.smt2 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1A15D3A82189698A00927834 /* sat.smt2 */; };
 		1A15D3B521897B4600927834 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 1A15D3B421897B4600927834 /* main.c */; };
-		1A15D3B921897D5F00927834 /* libz3.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1A15D3A22189669900927834 /* libz3.dylib */; };
-		1A15D3BA21897D9000927834 /* Z3Harness.c in Sources */ = {isa = PBXBuildFile; fileRef = 1A15D394218962E800927834 /* Z3Harness.c */; };
 		1A15D3BB21897DB700927834 /* sat.smt2 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1A15D3A82189698A00927834 /* sat.smt2 */; };
 		1A15D3BD21897EC500927834 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1A15D3BC21897EC500927834 /* README.md */; };
 		1A5D8B8D218A9A5C00354BF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A5D8B8C218A9A5C00354BF6 /* Main.storyboard */; };
+		1A5D8B92218AA5DF00354BF6 /* libz3.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 1A15D38F2189621200927834 /* libz3.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		1A5D8B94218AA5F800354BF6 /* libz3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A15D38F2189621200927834 /* libz3.dylib */; };
+		1A5D8B96218AAAAC00354BF6 /* libz3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A5D8B95218AAAAC00354BF6 /* libz3.dylib */; };
 		1AEA29C2218955E600974065 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AEA29C1218955E600974065 /* AppDelegate.m */; };
 		1AEA29C5218955E600974065 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AEA29C4218955E600974065 /* ViewController.m */; };
 		1AEA29CA218955E600974065 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AEA29C9218955E600974065 /* Assets.xcassets */; };
@@ -28,17 +23,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		1A15D3982189664A00927834 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 12;
-			dstPath = "";
-			dstSubfolderSpec = 16;
-			files = (
-				1A15D3AA21896A5D00927834 /* sat.smt2 in CopyFiles */,
-				1A15D3A72189682D00927834 /* libz3.dylib in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		1A15D3B021897B4600927834 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 12;
@@ -46,25 +30,31 @@
 			dstSubfolderSpec = 16;
 			files = (
 				1A15D3BB21897DB700927834 /* sat.smt2 in CopyFiles */,
-				1A15D3B921897D5F00927834 /* libz3.dylib in CopyFiles */,
 			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A5D8B93218AA5DF00354BF6 /* Embed Libraries */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1A5D8B92218AA5DF00354BF6 /* libz3.dylib in Embed Libraries */,
+			);
+			name = "Embed Libraries";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1A15D38F2189621200927834 /* libz3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libz3.dylib; sourceTree = "<group>"; };
-		1A15D393218962E800927834 /* Z3Harness.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Z3Harness.h; sourceTree = "<group>"; };
-		1A15D394218962E800927834 /* Z3Harness.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = Z3Harness.c; sourceTree = "<group>"; };
-		1A15D39A2189664A00927834 /* z3mac */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = z3mac; sourceTree = BUILT_PRODUCTS_DIR; };
-		1A15D39C2189664A00927834 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		1A15D3A22189669900927834 /* libz3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libz3.dylib; sourceTree = "<group>"; };
 		1A15D3A82189698A00927834 /* sat.smt2 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sat.smt2; sourceTree = "<group>"; };
-		1A15D3B221897B4600927834 /* z3linux */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = z3linux; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A15D3B221897B4600927834 /* cmd */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = cmd; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A15D3B421897B4600927834 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		1A15D3BC21897EC500927834 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1A5D8B8C218A9A5C00354BF6 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		1AEA29BD218955E600974065 /* z3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = z3.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A5D8B95218AAAAC00354BF6 /* libz3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libz3.dylib; sourceTree = "<group>"; };
+		1AEA29BD218955E600974065 /* app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AEA29C0218955E600974065 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1AEA29C1218955E600974065 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1AEA29C3218955E600974065 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -76,17 +66,11 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		1A15D3972189664A00927834 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		1A15D3AF21897B4600927834 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A5D8B96218AAAAC00354BF6 /* libz3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,37 +78,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A5D8B94218AA5F800354BF6 /* libz3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1A15D39B2189664A00927834 /* z3mac */ = {
+		1A15D3B321897B4600927834 /* cmd */ = {
 			isa = PBXGroup;
 			children = (
-				1A15D3A22189669900927834 /* libz3.dylib */,
-				1A15D39C2189664A00927834 /* main.m */,
-			);
-			path = z3mac;
-			sourceTree = "<group>";
-		};
-		1A15D3A12189666700927834 /* harness */ = {
-			isa = PBXGroup;
-			children = (
-				1A15D3A82189698A00927834 /* sat.smt2 */,
-				1A15D393218962E800927834 /* Z3Harness.h */,
-				1A15D394218962E800927834 /* Z3Harness.c */,
-			);
-			path = harness;
-			sourceTree = "<group>";
-		};
-		1A15D3B321897B4600927834 /* z3linux */ = {
-			isa = PBXGroup;
-			children = (
+				1A5D8B95218AAAAC00354BF6 /* libz3.dylib */,
 				1A15D3B421897B4600927834 /* main.c */,
 			);
-			path = z3linux;
+			path = cmd;
+			sourceTree = "<group>";
+		};
+		1A5D8B8E218AA26100354BF6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		1AEA29B4218955E500974065 = {
@@ -133,15 +107,15 @@
 				1A15D3BC21897EC500927834 /* README.md */,
 				1AEA29BF218955E600974065 /* src */,
 				1AEA29BE218955E600974065 /* Products */,
+				1A5D8B8E218AA26100354BF6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		1AEA29BE218955E600974065 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1AEA29BD218955E600974065 /* z3.app */,
-				1A15D39A2189664A00927834 /* z3mac */,
-				1A15D3B221897B4600927834 /* z3linux */,
+				1AEA29BD218955E600974065 /* app.app */,
+				1A15D3B221897B4600927834 /* cmd */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -149,9 +123,8 @@
 		1AEA29BF218955E600974065 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				1A15D3A12189666700927834 /* harness */,
-				1A15D3B321897B4600927834 /* z3linux */,
-				1A15D39B2189664A00927834 /* z3mac */,
+				1A15D3A82189698A00927834 /* sat.smt2 */,
+				1A15D3B321897B4600927834 /* cmd */,
 				34F604CE218A1E730061BC5A /* app */,
 			);
 			path = src;
@@ -177,26 +150,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1A15D3992189664A00927834 /* z3mac */ = {
+		1A15D3B121897B4600927834 /* cmd */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1A15D39E2189664A00927834 /* Build configuration list for PBXNativeTarget "z3mac" */;
-			buildPhases = (
-				1A15D3962189664A00927834 /* Sources */,
-				1A15D3972189664A00927834 /* Frameworks */,
-				1A15D3982189664A00927834 /* CopyFiles */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = z3mac;
-			productName = z3mac;
-			productReference = 1A15D39A2189664A00927834 /* z3mac */;
-			productType = "com.apple.product-type.tool";
-		};
-		1A15D3B121897B4600927834 /* z3linux */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1A15D3B621897B4600927834 /* Build configuration list for PBXNativeTarget "z3linux" */;
+			buildConfigurationList = 1A15D3B621897B4600927834 /* Build configuration list for PBXNativeTarget "cmd" */;
 			buildPhases = (
 				1A15D3AE21897B4600927834 /* Sources */,
 				1A15D3AF21897B4600927834 /* Frameworks */,
@@ -206,26 +162,27 @@
 			);
 			dependencies = (
 			);
-			name = z3linux;
+			name = cmd;
 			productName = z3linux;
-			productReference = 1A15D3B221897B4600927834 /* z3linux */;
+			productReference = 1A15D3B221897B4600927834 /* cmd */;
 			productType = "com.apple.product-type.tool";
 		};
-		1AEA29BC218955E500974065 /* z3 */ = {
+		1AEA29BC218955E500974065 /* app */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1AEA29D3218955E600974065 /* Build configuration list for PBXNativeTarget "z3" */;
+			buildConfigurationList = 1AEA29D3218955E600974065 /* Build configuration list for PBXNativeTarget "app" */;
 			buildPhases = (
 				1AEA29B9218955E500974065 /* Sources */,
 				1AEA29BA218955E500974065 /* Frameworks */,
 				1AEA29BB218955E500974065 /* Resources */,
+				1A5D8B93218AA5DF00354BF6 /* Embed Libraries */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = z3;
+			name = app;
 			productName = z3;
-			productReference = 1AEA29BD218955E600974065 /* z3.app */;
+			productReference = 1AEA29BD218955E600974065 /* app.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -237,9 +194,6 @@
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "James Bornholt";
 				TargetAttributes = {
-					1A15D3992189664A00927834 = {
-						CreatedOnToolsVersion = 10.1;
-					};
 					1A15D3B121897B4600927834 = {
 						CreatedOnToolsVersion = 10.1;
 					};
@@ -261,9 +215,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1AEA29BC218955E500974065 /* z3 */,
-				1A15D3992189664A00927834 /* z3mac */,
-				1A15D3B121897B4600927834 /* z3linux */,
+				1AEA29BC218955E500974065 /* app */,
+				1A15D3B121897B4600927834 /* cmd */,
 			);
 		};
 /* End PBXProject section */
@@ -273,7 +226,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A15D392218962AC00927834 /* libz3.dylib in Resources */,
 				1AEA29CD218955E600974065 /* LaunchScreen.storyboard in Resources */,
 				1AEA29CA218955E600974065 /* Assets.xcassets in Resources */,
 				1A5D8B8D218A9A5C00354BF6 /* Main.storyboard in Resources */,
@@ -285,20 +237,10 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		1A15D3962189664A00927834 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1A15D3A62189672300927834 /* Z3Harness.c in Sources */,
-				1A15D39D2189664A00927834 /* main.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		1A15D3AE21897B4600927834 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A15D3BA21897D9000927834 /* Z3Harness.c in Sources */,
 				1A15D3B521897B4600927834 /* main.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -308,7 +250,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1AEA29C5218955E600974065 /* ViewController.m in Sources */,
-				1A15D395218962E800927834 /* Z3Harness.c in Sources */,
 				1AEA29D0218955E600974065 /* main.m in Sources */,
 				1AEA29C2218955E600974065 /* AppDelegate.m in Sources */,
 			);
@@ -328,44 +269,17 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		1A15D39F2189664A00927834 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Automatic;
-				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/z3/src/api";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/src/z3mac",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-			};
-			name = Debug;
-		};
-		1A15D3A02189664A00927834 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Automatic;
-				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/z3/src/api";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/src/z3mac",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-			};
-			name = Release;
-		};
 		1A15D3B721897B4600927834 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				HEADER_SEARCH_PATHS = /Users/james/code/z3/src/api;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/src/cmd",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -378,6 +292,11 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				HEADER_SEARCH_PATHS = /Users/james/code/z3/src/api;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/src/cmd",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -502,6 +421,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DY7L2C256S;
+				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/z3/src/api";
 				INFOPLIST_FILE = "$(PROJECT_DIR)/src/app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -525,6 +445,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DY7L2C256S;
+				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/z3/src/api";
 				INFOPLIST_FILE = "$(PROJECT_DIR)/src/app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -545,16 +466,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1A15D39E2189664A00927834 /* Build configuration list for PBXNativeTarget "z3mac" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1A15D39F2189664A00927834 /* Debug */,
-				1A15D3A02189664A00927834 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		1A15D3B621897B4600927834 /* Build configuration list for PBXNativeTarget "z3linux" */ = {
+		1A15D3B621897B4600927834 /* Build configuration list for PBXNativeTarget "cmd" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1A15D3B721897B4600927834 /* Debug */,
@@ -572,7 +484,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1AEA29D3218955E600974065 /* Build configuration list for PBXNativeTarget "z3" */ = {
+		1AEA29D3218955E600974065 /* Build configuration list for PBXNativeTarget "app" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1AEA29D4218955E600974065 /* Debug */,
