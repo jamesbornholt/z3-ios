@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UITextView *smtInputView;
 @property (weak, nonatomic) IBOutlet UITextView *outputView;
+@property (weak, nonatomic) IBOutlet UISwitch *bmSwitch;
 
 
 @end

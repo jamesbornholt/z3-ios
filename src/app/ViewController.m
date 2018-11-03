@@ -55,37 +55,59 @@
     }
 }
 
+- (IBAction)toggleBMSwitch:(id)sender {
+    NSString* str = self.bmSwitch.on ? @"Run Z3 10x" : @"Run Z3";
+    [self.runButton setTitle:str forState:UIControlStateNormal];
+}
+
 static void z3_noexit_error_handler(Z3_context ctx, Z3_error_code c) {
     fprintf(stderr, "Z3 Error: %s\n", Z3_get_error_msg(ctx, c));
 }
 
 - (IBAction)runStuff:(id)sender {
     NSString *smt = [self.smtInputView text];
+    
+    [self.outputView setText:@""];
+    
+    bool bmMode = self.bmSwitch.on;
+    unsigned iters = bmMode ? 10 : 1;
     dispatch_queue_global_t q = dispatch_get_global_queue(QOS_CLASS_USER_INTERACTIVE, 0);
     dispatch_async(q, ^{
         dispatch_sync(dispatch_get_main_queue(), ^{
             [self.timeLabel setText:@"Running..."];
         });
-
-        Z3_context ctx = Z3_mk_context(NULL);
-        Z3_set_error_handler(ctx, &z3_noexit_error_handler);
         
-        NSDate *start = [NSDate date];
-        Z3_string z3ret = Z3_eval_smtlib2_string(ctx, [smt cStringUsingEncoding:NSASCIIStringEncoding]);
-        double time = [start timeIntervalSinceNow] * -1;
+        for (unsigned i = 0; i < iters; i++) {
+            Z3_config cfg = Z3_mk_config();
+            Z3_context ctx = Z3_mk_context(cfg);
+            Z3_set_error_handler(ctx, &z3_noexit_error_handler);
+            
+            NSDate *start = [NSDate date];
+            Z3_string z3ret = Z3_eval_smtlib2_string(ctx, [smt cStringUsingEncoding:NSASCIIStringEncoding]);
+            double time = [start timeIntervalSinceNow] * -1;
+            
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                [self.timeLabel setText:[NSString stringWithFormat:@"%f s", time]];
+                if (bmMode) {
+                    NSString* res = [NSString stringWithCString:z3ret encoding:NSASCIIStringEncoding];
+                    NSRange nl = [res rangeOfString:@"\n"];
+                    if (nl.location != NSNotFound) {
+                        res = [res substringToIndex:nl.location];
+                    }
+                    [self.outputView setText:[NSString stringWithFormat:@"%@%fs: %@\n", [self.outputView text], time, res]];
+                } else {
+                    [self.outputView setText:[NSString stringWithUTF8String:z3ret]];
+                }
+            });
+            
+            Z3_del_context(ctx);
+        }
         
-        // copy output string to buffer before we free the context
-        size_t len = strlen(z3ret);
-        char *ret = calloc(sizeof(char), len + 1);
-        strcpy(ret, z3ret);
-        
-        Z3_del_context(ctx);
-
-        NSLog(@"Z3 returned [%fs] \"%s\"", time, ret);
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.timeLabel setText:[NSString stringWithFormat:@"%f s", time]];
-            [self.outputView setText:[NSString stringWithUTF8String:ret]];
-        });
+        if (bmMode) {
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                [self.timeLabel setText:@"Done"];
+            });
+        }
     });
 
 }
